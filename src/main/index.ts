@@ -12,7 +12,8 @@ function createWindow(): void {
     titleBarStyle: 'hidden',
     titleBarOverlay: {
       color: '#150f14',
-      symbolColor: '#ece4ea'
+      symbolColor: '#ece4ea',
+      height: 40
     },
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
