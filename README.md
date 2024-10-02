@@ -1,3 +1,4 @@
-# rapid
+# HuntHelper
 
-An Electron application with React and TypeScript
+A shiny hunting companion app that is simple and usable offline.
+
