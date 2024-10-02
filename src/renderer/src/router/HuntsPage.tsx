@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, Heading, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Card, CardBody, Heading, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import Counter from '@renderer/components/counter'
 import { useEffect, useState } from 'react'
 

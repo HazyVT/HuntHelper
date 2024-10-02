@@ -152,7 +152,6 @@ export default function CounterPage(): JSX.Element {
                 parsed.push(json)
 
                 localStorage.setItem('hunts', JSON.stringify(parsed))
-
               }
 
               reset()
