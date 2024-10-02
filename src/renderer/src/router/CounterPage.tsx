@@ -97,6 +97,9 @@ export default function CounterPage(): JSX.Element {
     >
       {counter ? (
         <Box textAlign="center">
+          <Text fontWeight={800} fontSize={18}>
+            {counter.pokemon}
+          </Text>
           <Text>{timeString(hours, minutes, seconds)}</Text>
           <Image
             src={`https://play.pokemonshowdown.com/sprites/gen5-shiny/${counter.pokemon.toLowerCase()}.png`}
@@ -171,7 +174,14 @@ export default function CounterPage(): JSX.Element {
         <Box>
           <Heading>No current hunt</Heading>
           <Box textAlign={'center'} marginTop={4}>
-            <Button onClick={onOpen} bgColor="accent.main" _hover={{bgColor: "accent.600"}} color="white">New Hunt</Button>
+            <Button
+              onClick={onOpen}
+              bgColor="accent.main"
+              _hover={{ bgColor: 'accent.600' }}
+              color="white"
+            >
+              New Hunt
+            </Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
@@ -193,7 +203,14 @@ export default function CounterPage(): JSX.Element {
                   <Button colorScheme="red" marginRight={4} onClick={onClose}>
                     Cancel
                   </Button>
-                  <Button onClick={handleSetCounter} bgColor="accent.main" color="white" _hover={{bgColor: "accent.600"}}>Start hunt</Button>
+                  <Button
+                    onClick={handleSetCounter}
+                    bgColor="accent.main"
+                    color="white"
+                    _hover={{ bgColor: 'accent.600' }}
+                  >
+                    Start hunt
+                  </Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>

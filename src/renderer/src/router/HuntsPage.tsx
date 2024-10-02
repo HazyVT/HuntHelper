@@ -57,6 +57,7 @@ export default function HuntsPage(): JSX.Element {
               <WrapItem key={hunt.pokemon + '' + index}>
                 <Card>
                   <CardBody textAlign={'center'}>
+                    <Text fontWeight={500}>{hunt.pokemon}</Text>
                     <Text>{timeString(hunt.time[0], hunt.time[1], hunt.time[2])}</Text>
                     <Image
                       src={`https://play.pokemonshowdown.com/sprites/gen5-shiny/${hunt.pokemon.toLowerCase()}.png`}
