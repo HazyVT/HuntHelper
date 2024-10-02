@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Card, CardBody, Heading, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import Counter from '@renderer/components/counter'
 import { useEffect, useState } from 'react'
 
@@ -49,20 +49,30 @@ export default function HuntsPage(): JSX.Element {
   }
 
   return (
-    <Wrap margin={4}>
-      {hunts.map((hunt, index) => {
-        return (
-          <WrapItem key={hunt.pokemon + '' + index}>
-            <Card>
-              <CardBody textAlign={'center'}>
-                <Text>{timeString(hunt.time[0], hunt.time[1], hunt.time[2])}</Text>
-                <Image src={`../../assets/pokemon/${hunt.pokemon}.png`} />
-                <Heading size="md">{hunt.encounters}</Heading>
-              </CardBody>
-            </Card>
-          </WrapItem>
-        )
-      })}
-    </Wrap>
+    <Box>
+      {hunts.length > 0 ? (
+        <Wrap margin={4}>
+          {hunts.map((hunt, index) => {
+            return (
+              <WrapItem key={hunt.pokemon + '' + index}>
+                <Card>
+                  <CardBody textAlign={'center'}>
+                    <Text>{timeString(hunt.time[0], hunt.time[1], hunt.time[2])}</Text>
+                    <Image
+                      src={`https://play.pokemonshowdown.com/sprites/gen5-shiny/${hunt.pokemon.toLowerCase()}.png`}
+                    />
+                    <Heading size="md">{hunt.encounters}</Heading>
+                  </CardBody>
+                </Card>
+              </WrapItem>
+            )
+          })}
+        </Wrap>
+      ) : (
+        <Box w="100vw" h="80vh" display="flex" justifyContent={'center'} alignItems={'center'}>
+          <Heading>No Hunts</Heading>
+        </Box>
+      )}
+    </Box>
   )
 }

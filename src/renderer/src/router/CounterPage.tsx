@@ -98,7 +98,9 @@ export default function CounterPage(): JSX.Element {
       {counter ? (
         <Box textAlign="center">
           <Text>{timeString(hours, minutes, seconds)}</Text>
-          <Image src={`../../assets/pokemon/${counter.pokemon.toLowerCase()}.png`} />
+          <Image
+            src={`https://play.pokemonshowdown.com/sprites/gen5-shiny/${counter.pokemon.toLowerCase()}.png`}
+          />
           <Heading
             userSelect={'none'}
             cursor="pointer"
