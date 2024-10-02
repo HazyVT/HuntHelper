@@ -60,6 +60,14 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
 
+  ipcMain.on('github', () => {
+    shell.openExternal('https://github.com/hazyvt/rapid')
+  })
+
+  ipcMain.on('twitter', () => {
+    shell.openExternal('https://twitter.com/hazyvt')
+  })
+
   createWindow()
 
   app.on('activate', function () {
