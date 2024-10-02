@@ -1,10 +1,10 @@
-import { Box, Button, Drawer, DrawerContent, Icon, useDisclosure } from '@chakra-ui/react'
-import { MutableRefObject, useRef } from 'react'
-import { HiMenuAlt2 } from 'react-icons/hi'
+import { Box, Icon } from '@chakra-ui/react'
+import { PiClockCounterClockwiseBold } from 'react-icons/pi'
+import { GiHunterEyes } from 'react-icons/gi'
+import { useNavigate } from 'react-router-dom'
 
 function Titlebar(): JSX.Element {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnref = useRef() as MutableRefObject<HTMLButtonElement>
+  const nav = useNavigate()
 
   return (
     <Box
@@ -15,26 +15,22 @@ function Titlebar(): JSX.Element {
       display="flex"
       alignItems="center"
     >
-      <Button colorScheme="" ref={btnref} onClick={onOpen}>
-        <Icon as={HiMenuAlt2} color="white" className="nodrag" />
-      </Button>
-
-      <Drawer
-        placement="left"
-        finalFocusRef={btnref}
-        isOpen={isOpen}
-        onClose={onClose}
-        isFullHeight={false}
-      >
-        <DrawerContent
-          borderRadius="8px"
-          bgColor="background.main"
-          h={'80vh'}
-          w={'10vw'}
-          maxW={36}
-          marginTop={20}
-        ></DrawerContent>
-      </Drawer>
+      <Icon
+        onClick={() => nav('/')}
+        color="accent.main"
+        cursor="pointer"
+        as={PiClockCounterClockwiseBold}
+        className="nodrag"
+        marginLeft={24}
+      />
+      <Icon
+        cursor="pointer"
+        onClick={() => nav('/hunts')}
+        className="nodrag"
+        color="accent.main"
+        as={GiHunterEyes}
+        marginLeft={4}
+      />
     </Box>
   )
 }

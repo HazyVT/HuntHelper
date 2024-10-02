@@ -2,68 +2,68 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
-const theme = extendTheme({
+const lightTheme = extendTheme({
   colors: {
     text: {
-      main: '#ece4ea'
+      main: '#11100d'
     },
     background: {
-      main: '#150f14',
-      50: '#f4f0f4',
-      100: '#eae1e8',
-      200: '#d5c3d2',
-      300: '#c0a5bb',
-      400: '#aa88a5',
-      500: '#956a8e',
-      600: '#775572',
-      700: '#5a3f55',
-      800: '#3c2a39',
-      900: '#1e151c'
+      main: '#fafaf9',
+      50: '#f3f3f1',
+      100: '#e8e8e3',
+      200: '#d1d1c7',
+      300: '#b9b9ac',
+      400: '#a2a290',
+      500: '#8b8b74',
+      600: '#6f6f5d',
+      700: '#535346',
+      800: '#38382e',
+      900: '#1c1c17'
     },
     primary: {
-      main: '#c8b0c2',
-      50: '#f5f0f3',
-      100: '#eae1e8',
-      200: '#d5c3d1',
-      300: '#c0a5b9',
-      400: '#ab87a2',
-      500: '#96698b',
-      600: '#78546f',
-      700: '#5a3f53',
-      800: '#3c2a38',
-      900: '#1e151c'
+      main: '#989076',
+      50: '#f4f3f0',
+      100: '#e9e7e2',
+      200: '#d3d0c5',
+      300: '#bdb8a8',
+      400: '#a7a18b',
+      500: '#91896e',
+      600: '#746e58',
+      700: '#575242',
+      800: '#3a372c',
+      900: '#1d1b16'
     },
     secondary: {
-      main: '#604443',
-      50: '#f5f0f0',
-      100: '#eae1e1',
-      200: '#d5c3c3',
-      300: '#c0a6a5',
-      400: '#ab8887',
-      500: '#966a69',
-      600: '#785554',
-      700: '#5a403f',
-      800: '#3c2a2a',
-      900: '#1e1515'
+      main: '#b3c4b1',
+      50: '#f1f4f0',
+      100: '#e3e9e2',
+      200: '#c6d3c5',
+      300: '#aabda8',
+      400: '#8ea78b',
+      500: '#71916e',
+      600: '#5b7458',
+      700: '#445742',
+      800: '#2d3a2c',
+      900: '#171d16'
     },
     accent: {
-      main: '#a08476',
-      50: '#f5f1f0',
-      100: '#eae4e1',
-      200: '#d5c9c3',
-      300: '#c0aea5',
-      400: '#ab9387',
-      500: '#967869',
-      600: '#786054',
-      700: '#5a483f',
-      800: '#3c302a',
-      900: '#1e1815'
+      main: '#96b09b',
+      50: '#f0f4f1',
+      100: '#e2e9e3',
+      200: '#c5d3c8',
+      300: '#a8bdac',
+      400: '#8ba790',
+      500: '#6e9175',
+      600: '#58745d',
+      700: '#425746',
+      800: '#2c3a2f',
+      900: '#161d17'
     }
   }
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <ChakraProvider theme={theme}>
+  <ChakraProvider theme={lightTheme}>
     <App />
   </ChakraProvider>
 )
