@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import fs from "node:fs";
 createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 process.env.APP_ROOT = path.join(__dirname, "..");
@@ -25,6 +26,13 @@ function createWindow() {
   } else {
     win.loadFile(path.join(RENDERER_DIST, "index.html"));
   }
+  if (process.platform == "darwin") {
+    if (!fs.existsSync(`/Users/${process.env.USER}/Library/Preferences/MonoCompanion`)) {
+      fs.mkdirSync(`/Users/${process.env.USER}/Library/Preferences/MonoCompanion`, { recursive: true });
+      fs.writeFileSync(`/Users/${process.env.USER}/Library/Preferences/MonoCompanion/hunts.json`, JSON.stringify([]));
+      fs.writeFileSync(`/Users/${process.env.USER}/Library/Preferences/MonoCompanion/currenthunts.json`, JSON.stringify([]));
+    }
+  }
 }
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -38,6 +46,8 @@ app.on("activate", () => {
   }
 });
 app.whenReady().then(createWindow);
+ipcMain.on("ping", () => console.log("pong"));
+ipcMain.on("file", () => console.log(fs.readdirSync(".")));
 export {
   MAIN_DIST,
   RENDERER_DIST,
